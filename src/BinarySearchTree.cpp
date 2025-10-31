@@ -1,5 +1,7 @@
 #include "../include/BinarySearchTree.h"
 #include <iostream>
+#include <string>
+using namespace std;
 
 BinarySearchTree::BinarySearchTree(){
     this->root = nullptr;
@@ -94,15 +96,15 @@ BinarySearchTree::Node* BinarySearchTree::removeNode(BinarySearchTree::Node* cur
         currentNode->right = removeNode(currentNode->right, value);
     } else {
         if (currentNode->left == nullptr && currentNode->right == nullptr){
-            delete(currentNode);
+            delete currentNode;
             return nullptr;
         } else if(currentNode->left == nullptr){
             Node* temp = currentNode->right;
-            delete(currentNode);
+            delete currentNode;
             return temp;
         } else if (currentNode->right == nullptr){
             Node* temp = currentNode->left;
-            delete(currentNode);
+            delete currentNode;
             return temp;
         } else {
             int subTreeMin = minValue(currentNode->right);
@@ -127,4 +129,38 @@ void BinarySearchTree::removeNode(int value){
 
     root = removeNode(root, value);
 
+}
+
+// Destructor: libera toda la memoria del árbol
+BinarySearchTree::~BinarySearchTree() {
+    destroyTree(root);
+}
+
+void BinarySearchTree::destroyTree(Node* currentNode) {
+    if (currentNode != nullptr) {
+        destroyTree(currentNode->left);
+        destroyTree(currentNode->right);
+        delete currentNode;
+    }
+}
+
+// Display visual del árbol
+void BinarySearchTree::display(Node* currentNode, std::string prefix, bool isLeft) {
+    if (currentNode != nullptr) {
+        std::cout << prefix;
+
+        std::cout << (isLeft ? "├──" : "└──" );
+        std::cout << currentNode->value << std::endl;
+
+        display(currentNode->left, prefix + (isLeft ? "│   " : "    "), true);
+        display(currentNode->right, prefix + (isLeft ? "│   " : "    "), false);
+    }
+}
+
+void BinarySearchTree::display() {
+    if (root == nullptr) {
+        std::cout << "(Árbol vacío)" << std::endl;
+    } else {
+        display(root, "", false);
+    }
 }

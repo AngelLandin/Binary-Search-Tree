@@ -1,5 +1,8 @@
 #ifndef BINARYSEARCHTREE_H_INCLUDED
 #define BINARYSEARCHTREE_H_INCLUDED
+#include <iostream>
+#include <string>
+using namespace std;
 
 class BinarySearchTree {
 private:
@@ -22,6 +25,10 @@ public:
 
     // Constructor
     BinarySearchTree();
+
+    // Destructor
+    ~BinarySearchTree();  
+
     
     // Firmas de Métodos de la estructura BST
     bool insert(int value);
@@ -42,6 +49,11 @@ public:
 
     //Metodo auxiliar para encontrar el valor minimo en el arbol
     int minValue(Node* currentNode);
+
+    void display();
+
+    void destroyTree(Node* currentNode);
+    void display(Node* currentNode, string prefix, bool isLeft);
 
 
 };

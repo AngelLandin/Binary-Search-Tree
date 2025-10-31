@@ -75,5 +75,51 @@ int main()
     cout << "\nRoot: " << myBST2->root->value << endl;
     cout << "Root->Left: " << myBST2->root->left->value << endl;
     cout << "Root->Right: " << myBST2->root->right << endl;
+    
+
+
+
+    // 🌱 Crear el árbol dinámicamente
+    BinarySearchTree* bst = new BinarySearchTree();
+
+    std::cout << "=== INSERTANDO NODOS ===" << std::endl;
+    bst->insert(8);
+    bst->insert(3);
+    bst->insert(10);
+    bst->insert(1);
+    bst->insert(6);
+    bst->insert(14);
+    bst->insert(4);
+    bst->insert(7);
+    bst->insert(13);
+
+    std::cout << "\n=== DISPLAY DEL ÁRBOL ===" << std::endl;
+    bst->display();
+
+    std::cout << "\n=== RECORRIDOS ===" << std::endl;
+    std::cout << "Inorder: "; bst->inorder(); std::cout << std::endl;
+    std::cout << "Preorder: "; bst->preorder(); std::cout << std::endl;
+    std::cout << "Postorder: "; bst->postorder(); std::cout << std::endl;
+
+    std::cout << "\n=== BUSQUEDA ===" << std::endl;
+    std::cout << "Buscar 6: " << (bst->search(6) ? "Encontrado" : "No encontrado") << std::endl;
+    std::cout << "Buscar 15: " << (bst->search(15) ? "Encontrado" : "No encontrado") << std::endl;
+
+    std::cout << "\n=== ELIMINACIONES ===" << std::endl;
+    bst->removeNode(1);   // eliminar hoja
+    bst->removeNode(6);   // eliminar nodo con dos hijos
+    bst->removeNode(10);  // eliminar nodo con un hijo
+
+    std::cout << "\nÁrbol después de eliminar 1, 6 y 10:" << std::endl;
+    bst->display();
+
+    std::cout << "\nInorder final: ";
+    bst->inorder();
+    std::cout << std::endl;
+
+    std::cout << "\n=== FIN DEL PROGRAMA ===" << std::endl;
+
+    // 💣 Liberar memoria manualmente
+    delete bst;
     return 0;
 }
