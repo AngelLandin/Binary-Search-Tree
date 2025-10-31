@@ -33,23 +33,18 @@ bool BinarySearchTree::insert(int value){
     }
 }
 
-bool BinarySearchTree::search(int value){
-    // Verificamos si el arbol esta vacio; Si lo esta, retornamos false, indicando que no existe el valor.
-    //if (root == nullptr) return false;
+bool BinarySearchTree::search(Node* currentNode, int value){
+    if (currentNode == nullptr) return false;
 
-    // Creamos un Nodo temporal, para ir recorriendo el arbol sin modificar la estructura original
-    Node* temp = root;
+    if (currentNode->value == value) return true;
 
-    // Bucle while 
-    while (temp != nullptr){
-        if (value < temp->value){
-            temp = temp->left;
-        } else if (value > temp->value){
-            temp = temp->right;
-        } else {
-            return true;
-        }
+    if (currentNode->value > value){
+        return search(currentNode->left, value);
+    } else {
+        return search(currentNode->right, value);
     }
+}
 
-    return false;
+bool BinarySearchTree::search(int value){
+    return search(root, value);
 }

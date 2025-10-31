@@ -25,7 +25,11 @@ public:
     
     // Firmas de Métodos de la estructura BST
     bool insert(int value);
+
+    bool search(Node* currentNode, int value);
     bool search(int value);
+
+
 };
 
 #endif // BINARYSEARCHTREE_H_INCLUDED
