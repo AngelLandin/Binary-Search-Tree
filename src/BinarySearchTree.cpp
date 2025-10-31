@@ -84,3 +84,47 @@ void BinarySearchTree::postorder(Node* currentNode){
 void BinarySearchTree::postorder(){
     postorder(root);
 }
+
+BinarySearchTree::Node* BinarySearchTree::removeNode(BinarySearchTree::Node* currentNode, int value) {
+    if (currentNode == nullptr) return nullptr;
+
+    if (value < currentNode->value){
+        currentNode->left = removeNode(currentNode->left, value);
+    } else if (value > currentNode->value){
+        currentNode->right = removeNode(currentNode->right, value);
+    } else {
+        if (currentNode->left == nullptr && currentNode->right == nullptr){
+            delete(currentNode);
+            return nullptr;
+        } else if(currentNode->left == nullptr){
+            Node* temp = currentNode->right;
+            delete(currentNode);
+            return temp;
+        } else if (currentNode->right == nullptr){
+            Node* temp = currentNode->left;
+            delete(currentNode);
+            return temp;
+        } else {
+            int subTreeMin = minValue(currentNode->right);
+            currentNode->value = subTreeMin;
+            currentNode->right = removeNode(currentNode->right, subTreeMin);
+        }
+
+    }
+
+    return currentNode;
+}
+
+int BinarySearchTree::minValue(Node* currentNode){
+    while(currentNode->left != nullptr){
+        currentNode = currentNode->left;
+    }
+
+    return currentNode->value;
+}
+
+void BinarySearchTree::removeNode(int value){
+
+    root = removeNode(root, value);
+
+}

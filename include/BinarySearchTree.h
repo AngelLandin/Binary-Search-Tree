@@ -28,12 +28,21 @@ public:
 
     bool search(Node* currentNode, int value);
     bool search(int value);
+
     void inorder(Node* currentNode);
     void inorder();
     void preorder(Node* currentNode);
     void preorder();
     void postorder(Node* currentNode);
     void postorder();
+
+    Node* removeNode(Node* currentNode, int value);
+    void removeNode(int value);
+
+
+    //Metodo auxiliar para encontrar el valor minimo en el arbol
+    int minValue(Node* currentNode);
+
 
 };
 
