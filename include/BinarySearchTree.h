@@ -28,7 +28,12 @@ public:
 
     bool search(Node* currentNode, int value);
     bool search(int value);
-
+    void inorder(Node* currentNode);
+    void inorder();
+    void preorder(Node* currentNode);
+    void preorder();
+    void postorder(Node* currentNode);
+    void postorder();
 
 };
 

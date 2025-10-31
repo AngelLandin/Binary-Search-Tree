@@ -2,7 +2,6 @@
 #include "../include/BinarySearchTree.h"
 using namespace std;
 
-using namespace std;
 
 int main()
 {
@@ -21,5 +20,18 @@ int main()
     
     cout << "Contains 27: " << myBST->search(27) <<endl;
     cout << "Contains 17: " << myBST->search(17) <<endl;
+    cout << "Contains 76: " << myBST->search(76) <<endl;
+
+    cout << "Recorrido inorder ";
+    myBST->inorder();
+    cout << endl;
+
+    cout << "Recorrido preorder ";
+    myBST->preorder();
+    cout << endl;
+
+    cout << "Recorrido postorder ";
+    myBST->postorder();
+    cout << endl;
     return 0;
 }
