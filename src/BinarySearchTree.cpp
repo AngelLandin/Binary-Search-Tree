@@ -58,7 +58,6 @@ void BinarySearchTree::inorder(Node* currentNode){ // recorrido inorder (izquier
         inorder(currentNode->right); // finalmente, recorre de forma recursiva el subárbol derecho
     }
 }
-
 void BinarySearchTree::inorder(){
     inorder(root); //llama a la función recursiva comenzando desde la raíz, esto cuando no se pasa ningún nodo específico
 }
