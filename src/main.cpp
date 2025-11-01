@@ -43,11 +43,11 @@ int main()
     cout << myBST->minValue(myBST->root->right);
     */
 
-    BinarySearchTree* myBST2 = new BinarySearchTree();
+    BinarySearchTree* myBST2 = new BinarySearchTree(); // instanciar un nuevo árbol
     myBST2->insert(2);
-    myBST2->insert(1);
+    myBST2->insert(1); // pruebas de inserción
     myBST2->insert(3);
-
+// forma que tiene el árbol
     /*
 
         2
@@ -59,10 +59,10 @@ int main()
     cout << "\nBefore Deleting (2) Node:\n";
     cout << "------------------------------";
     cout << "\nRoot: " << myBST2->root->value << endl;
-    cout << "Root->Left: " << myBST2->root->left->value << endl;
+    cout << "Root->Left: " << myBST2->root->left->value << endl; // imprimir el arbol en orden
     cout << "Root->Right: " << myBST2->root->right->value << endl;
 
-    myBST2->removeNode(2);
+    myBST2->removeNode(2); // eliminar el nodo raíz con dos hijos
 
     /*
         3
@@ -73,38 +73,38 @@ int main()
     cout << "\n\nAfter Deleting (2) Node:\n";
     cout << "------------------------------";
     cout << "\nRoot: " << myBST2->root->value << endl;
-    cout << "Root->Left: " << myBST2->root->left->value << endl;
+    cout << "Root->Left: " << myBST2->root->left->value << endl; // imprimir el arbol después de la eliminación
     cout << "Root->Right: " << myBST2->root->right << endl;
     
 
 
 
     // 🌱 Crear el árbol dinámicamente
-    BinarySearchTree* bst = new BinarySearchTree();
-
+    BinarySearchTree* bst = new BinarySearchTree(); // instanciar un nuevo árbol
+    // pruebas de inserción
     std::cout << "=== INSERTANDO NODOS ===" << std::endl;
     bst->insert(8);
     bst->insert(3);
     bst->insert(10);
     bst->insert(1);
-    bst->insert(6);
+    bst->insert(6); 
     bst->insert(14);
     bst->insert(4);
     bst->insert(7);
     bst->insert(13);
-
+    // prueba de display
     std::cout << "\n=== DISPLAY DEL ÁRBOL ===" << std::endl;
     bst->display();
-
+    // pruebas de recorridos inorder, preorder, postorder
     std::cout << "\n=== RECORRIDOS ===" << std::endl;
     std::cout << "Inorder: "; bst->inorder(); std::cout << std::endl;
     std::cout << "Preorder: "; bst->preorder(); std::cout << std::endl;
     std::cout << "Postorder: "; bst->postorder(); std::cout << std::endl;
-
+    // pruebas de búsqueda
     std::cout << "\n=== BUSQUEDA ===" << std::endl;
-    std::cout << "Buscar 6: " << (bst->search(6) ? "Encontrado" : "No encontrado") << std::endl;
-    std::cout << "Buscar 15: " << (bst->search(15) ? "Encontrado" : "No encontrado") << std::endl;
-
+    std::cout << "Buscar 6: " << (bst->search(6) ? "Encontrado" : "No encontrado") << std::endl; //prueba con valor existente
+    std::cout << "Buscar 15: " << (bst->search(15) ? "Encontrado" : "No encontrado") << std::endl; // prueba con valor no existente
+    // pruebas de eliminación
     std::cout << "\n=== ELIMINACIONES ===" << std::endl;
     bst->removeNode(1);   // eliminar hoja
     bst->removeNode(6);   // eliminar nodo con dos hijos

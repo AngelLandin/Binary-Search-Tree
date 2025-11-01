@@ -4,17 +4,17 @@
 #include <string>
 using namespace std;
 
-class BinarySearchTree {
+class BinarySearchTree { // Definición de la clase BinarySearchTree
 private:
-    struct Node {
-        int value;
-        Node* left;
-        Node* right;
+    struct Node { // Definición de la estructura Node (nodo del árbol) es privada
+        int value; // valor del nodo
+        Node* left; // hijo izquierdo
+        Node* right; // hijo derecho
 
-        Node(int value){
-            this->value = value;
-            this->left = nullptr;
-            this->right = nullptr;
+        Node(int value){ // constructor del nodo
+            this->value = value; // asigna el valor al nodo
+            this->left = nullptr; // inicializa el hijo izquierdo como nulo
+            this->right = nullptr; // inicializa el hijo derecho como nulo
         }
     };
 
